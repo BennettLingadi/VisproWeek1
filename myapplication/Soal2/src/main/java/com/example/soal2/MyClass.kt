@@ -106,10 +106,11 @@ fun main() {
                         damage = 15
                         maxmana = 45
                         maxhp = 75
+                        mana = maxmana
+                        hp = maxhp
                     }
 
-                    mana = maxmana
-                    hp = maxhp
+
 
                     enemies[0].health = 50
                     enemies[1].health = 50
@@ -140,125 +141,150 @@ fun main() {
 
                         if (choices3 == "a") {
 
-                            if (enemies[angka].type == "Grass"){
-                                enemies[angka].health = enemies[angka].health - (damage*2)
-                                if (kill >= 5){
-                                    hp = hp + lifesteal
-                                }
+                            if (mana < 10){
+                                println("You Dont Have Any Mana Left")
+                            } else{
 
-                                if (enemies[angka].health <= 0){
-                                    println("Enemy Defeated")
-                                    kill = kill + 1
+                                if (enemies[angka].type == "Grass"){
+                                    enemies[angka].health = enemies[angka].health - (damage*2)
+                                    mana = mana - 10
+
                                     if (kill >= 5){
-                                        lifesteal = lifesteal + 1
+                                        hp = hp + lifesteal
                                     }
-                                    break
-                                }
-                            } else {
-                                enemies[angka].health = enemies[angka].health - damage
-                                if (kill >= 5){
-                                    hp = hp + lifesteal
+
+                                    if (enemies[angka].health <= 0){
+                                        println("Enemy Defeated")
+                                        kill = kill + 1
+                                        if (kill >= 5){
+                                            lifesteal = lifesteal + 1
+                                        }
+                                        break
+                                    }
+                                } else {
+                                    enemies[angka].health = enemies[angka].health - damage
+                                    mana = mana - 10
+                                    if (kill >= 5){
+                                        hp = hp + lifesteal
+                                    }
+
+                                    if (enemies[angka].health <= 0){
+                                        println("Enemy Defeated")
+                                        kill = kill + 1
+                                        if (kill > 5){
+                                            lifesteal = lifesteal + 1
+                                        }
+                                        break
+                                    }
                                 }
 
-                                if (enemies[angka].health <= 0){
-                                    println("Enemy Defeated")
-                                    kill = kill + 1
-                                    if (kill > 5){
-                                        lifesteal = lifesteal + 1
-                                    }
-                                    break
+
+                                hp = hp - enemies[angka].damage
+
+                                if (hp <= 0){
+                                    println("YOU LOSE")
+                                    option2 = false
+                                    alive = false
                                 }
+
                             }
 
 
-                            hp = hp - enemies[angka].damage
-
-                            if (hp <= 0){
-                                println("YOU LOSE")
-                                option2 = false
-                                alive = false
-                            }
 
                         } else if (choices3 == "b") {
 
-                            if (enemies[angka].type == "Fire"){
-                                enemies[angka].health = enemies[angka].health - (damage*2)
-                                if (kill >= 5){
-                                    hp = hp + lifesteal
-                                }
-
-                                if (enemies[angka].health <= 0){
-                                    println("Enemy Defeated")
-                                    kill = kill + 1
-                                    if (kill > 5){
-                                        lifesteal = lifesteal + 1
-                                    }
-                                    break
-                                }
+                            if (mana < 10){
+                                println("You Dont Have Any Mana Left")
                             } else {
-                                enemies[angka].health = enemies[angka].health - damage
-                                if (kill >= 5){
-                                    hp = hp + lifesteal
-                                }
 
-                                if (enemies[angka].health <= 0){
-                                    println("Enemy Defeated")
-                                    kill = kill + 1
-                                    if (kill > 5){
-                                        lifesteal = lifesteal + 1
+                                if (enemies[angka].type == "Fire") {
+                                    enemies[angka].health = enemies[angka].health - (damage * 2)
+                                    mana = mana - 10
+                                    if (kill >= 5) {
+                                        hp = hp + lifesteal
                                     }
-                                    break
+
+                                    if (enemies[angka].health <= 0) {
+                                        println("Enemy Defeated")
+                                        kill = kill + 1
+                                        if (kill > 5) {
+                                            lifesteal = lifesteal + 1
+                                        }
+                                        break
+                                    }
+                                } else {
+                                    enemies[angka].health = enemies[angka].health - damage
+                                    mana = mana - 10
+                                    if (kill >= 5) {
+                                        hp = hp + lifesteal
+                                    }
+
+                                    if (enemies[angka].health <= 0) {
+                                        println("Enemy Defeated")
+                                        kill = kill + 1
+                                        if (kill > 5) {
+                                            lifesteal = lifesteal + 1
+                                        }
+                                        break
+                                    }
                                 }
-                            }
 
 
-                            hp = hp - enemies[angka].damage
+                                hp = hp - enemies[angka].damage
 
-                            if (hp <= 0){
-                                println("YOU LOSE")
-                                option2 = false
-                                alive = false
+                                if (hp <= 0) {
+                                    println("YOU LOSE")
+                                    option2 = false
+                                    alive = false
+                                }
                             }
 
                         } else if (choices3 == "c") {
 
-                            if (enemies[angka].type == "Water"){
-                                enemies[angka].health = enemies[angka].health - (damage*2)
-                                if (kill >= 5){
-                                    hp = hp + lifesteal
-                                }
-
-                                if (enemies[angka].health <= 0){
-                                    println("Enemy Defeated")
-                                    kill = kill + 1
-                                    if (kill > 5){
-                                        lifesteal = lifesteal + 1
-                                    }
-                                    break
-                                }
+                            if (mana < 10){
+                                println("You Dont Have Any Mana Left")
                             } else {
-                                enemies[angka].health = enemies[angka].health - damage
-                                if (kill >= 5){
-                                    hp = hp + lifesteal
-                                }
 
-                                if (enemies[angka].health <= 0){
-                                    println("Enemy Defeated")
-                                    kill = kill + 1
-                                    if (kill > 5){
-                                        lifesteal = lifesteal + 1
+                                if (enemies[angka].type == "Water") {
+                                    enemies[angka].health = enemies[angka].health - (damage * 2)
+                                    mana = mana - 10
+                                    if (kill >= 5) {
+                                        hp = hp + lifesteal
                                     }
-                                    break
+
+                                    if (enemies[angka].health <= 0) {
+                                        println("Enemy Defeated")
+                                        kill = kill + 1
+                                        if (kill > 5) {
+                                            lifesteal = lifesteal + 1
+                                        }
+                                        break
+                                    }
+                                } else {
+                                    enemies[angka].health = enemies[angka].health - damage
+                                    mana = mana - 10
+                                    if (kill >= 5) {
+                                        hp = hp + lifesteal
+                                    }
+
+                                    if (enemies[angka].health <= 0) {
+                                        println("Enemy Defeated")
+                                        kill = kill + 1
+                                        if (kill > 5) {
+                                            lifesteal = lifesteal + 1
+                                        }
+                                        break
+                                    }
                                 }
-                            }
 
 
-                            hp = hp - enemies[angka].damage
+                                hp = hp - enemies[angka].damage
 
-                            if (hp <= 0){
-                                println("YOU LOSE")
-                                option2 = false
-                                alive = false
+                                if (hp <= 0) {
+                                    println("YOU LOSE")
+                                    option2 = false
+                                    alive = false
+                                }
                             }
 
                         } else if (choices3 == "d") {
