@@ -25,3 +25,4 @@ dependencyResolutionManagement {
 rootProject.name = "visproweek1"
 include(":app")
 include(":Soal1")
+include(":Soal2")
